@@ -9,7 +9,7 @@ def organizar_archivos_por_extension(carpeta_origen, log_text):
     Organiza los archivos de la carpeta especificada en subcarpetas según sus extensiones.
     Dentro de Documentos y Archivos 3D, se crean subcarpetas adicionales según el tipo.
     """
-    carpeta_destino = os.path.join(os.path.expanduser("~"), "Downloads", "Organizados")
+    carpeta_destino = os.path.join(carpeta_origen, "Organizados")
     os.makedirs(carpeta_destino, exist_ok=True)
 
     registro_rutas = {}
@@ -100,11 +100,11 @@ def organizar_archivos_por_extension(carpeta_origen, log_text):
 
     return "\n".join(resumen)
 
-def revertir_organizacion(log_text):
+def revertir_organizacion(carpeta_origen, log_text):
     """
     Revierte la organización de los archivos moviéndolos de vuelta a su ubicación original.
     """
-    carpeta_destino = os.path.join(os.path.expanduser("~"), "Downloads", "Organizados")
+    carpeta_destino = os.path.join(carpeta_origen, "Organizados")
     registro_archivo = os.path.join(carpeta_destino, "revert.json")
 
     if not os.path.exists(registro_archivo):
@@ -155,7 +155,7 @@ def ejecutar_organizacion():
     resumen = organizar_archivos_por_extension(carpeta, log_text)
 
     def revertir():
-        revertir_organizacion(log_text)
+        revertir_organizacion(carpeta, log_text)
         boton_revertir.config(state=tk.DISABLED)
 
     boton_revertir.config(state=tk.NORMAL, command=revertir)
