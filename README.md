@@ -38,7 +38,7 @@ No es necesario instalar dependencias adicionales, ya que estas están incluidas
 
 1. Ejecuta el script:
    ```bash
-   python script.py
+   organizer.py
    ```
 2. Se abrirá una ventana GUI con las siguientes opciones:
    - **Organizar Archivos por Extensión:** Selecciona una carpeta y organiza los archivos dentro de subcarpetas.
