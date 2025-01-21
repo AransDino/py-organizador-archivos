@@ -19,9 +19,7 @@ Este script de Python organiza archivos en carpetas basadas en su extensión, fa
    ```
 2. Asegúrate de tener Python 3 instalado en tu sistema.
 3. Instala las dependencias necesarias:
-   ```bash
-   pip install -r requirements.txt
-   ```
+
 
 ### Dependencias
 
