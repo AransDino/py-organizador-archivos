@@ -14,7 +14,7 @@ Este script de Python organiza archivos en carpetas basadas en su extensión, fa
 
 1. Clona el repositorio o descarga el archivo.
    ```bash
-   git clone https://github.com/tu-usuario/organizador-archivos.git
+   git clone https://github.com/AransDino/py-organizador-archivos.git
    cd organizador-archivos
    ```
 2. Asegúrate de tener Python 3 instalado en tu sistema.
