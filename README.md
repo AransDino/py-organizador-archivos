@@ -1,52 +1,76 @@
 
 # Organizador de Archivos por Extensión
 
-Este script de Python organiza archivos en carpetas basadas en su extensión, facilitando la organización y clasificación de archivos en el sistema. Además, permite revertir los cambios realizados utilizando un registro de los archivos antes de ser movidos.
+Este proyecto de Python organiza archivos en carpetas basadas en su extensión. También permite revertir los cambios realizados utilizando un registro de los archivos antes de ser movidos.
 
 ## Características
 
-- Clasifica archivos en carpetas basadas en sus extensiones, con soporte para subcategorías específicas.
-- Registro automático de ubicaciones originales para permitir la reversión.
-- Interfaz gráfica de usuario (GUI) sencilla creada con `Tkinter`.
-- Soporte para múltiples tipos de archivos: documentos, imágenes, vídeos, audios, programas, archivos 3D, y más.
+- **Organización por Extensión:** Clasifica archivos en carpetas basadas en extensiones comunes (documentos, imágenes, vídeos, etc.).
+- **Subcategorías Especializadas:** Documentos y Archivos 3D tienen subcategorías específicas.
+- **Registro Automático:** Genera un registro (`revert.json`) con las ubicaciones originales y nuevas de los archivos.
+- **Reversión Completa:** Devuelve los archivos a sus ubicaciones originales usando el registro.
+- **Versiones:** Ofrece dos versiones:
+  - **GUI:** Interfaz gráfica usando `Tkinter`.
+  - **Consola:** Versión basada en texto para uso en terminales.
 
 ## Instalación
 
-1. Clona el repositorio o descarga el archivo.
+1. Clona el repositorio o descarga los archivos.
    ```bash
    git clone https://github.com/AransDino/py-organizador-archivos.git
-   cd organizador-archivos
+   cd py-organizador-archivos
    ```
-2. Asegúrate de tener Python 3 instalado en tu sistema.
-3. Instala las dependencias necesarias:
-
+2. Asegúrate de tener Python 3 instalado.
+3. Instala las dependencias necesarias si usas la versión GUI:
+   ```bash
+   pip install tkinter
+   ```
 
 ### Dependencias
 
-El script utiliza las siguientes bibliotecas estándar de Python:
+El script utiliza las siguientes bibliotecas estándar de Python (ya incluidas en Python):
 
-- `os` (gestión de archivos y directorios).
-- `shutil` (operaciones de movimiento y copia de archivos).
-- `json` (manejo de registros en formato JSON).
-- `tkinter` (creación de la interfaz gráfica de usuario).
-
-No es necesario instalar dependencias adicionales, ya que estas están incluidas en Python por defecto.
+- `os`: Gestión de archivos y directorios.
+- `shutil`: Operaciones de movimiento y copia de archivos.
+- `json`: Manejo de datos estructurados.
+- `tkinter` (solo para la versión GUI).
 
 ## Uso
 
-1. Ejecuta el script:
+### Versión GUI
+
+1. Ejecuta la versión GUI:
    ```bash
-   organizer.py
+   python organizer-gui.py
    ```
-2. Se abrirá una ventana GUI con las siguientes opciones:
-   - **Organizar Archivos por Extensión:** Selecciona una carpeta y organiza los archivos dentro de subcarpetas.
-   - **Revertir:** Si ya organizaste los archivos, esta opción los devolverá a su ubicación original.
+2. En la ventana, selecciona:
+   - **Organizar Archivos por Extensión:** Clasifica archivos de una carpeta seleccionada.
+   - **Revertir:** Deshace la organización y restaura los archivos.
+
+### Versión Consola
+
+1. Ejecuta la versión de consola:
+   ```bash
+   python organizer-console.py
+   ```
+2. Selecciona una opción del menú:
+   - **Organizar archivos:** Introduce la ruta de la carpeta que deseas organizar. Se crea una subcarpeta llamada `Organizados` dentro de la carpeta seleccionada.
+   - **Revertir organización:** Introduce la ruta de la carpeta que contiene `Organizados` para restaurar los archivos a su ubicación original.
+   - **Salir:** Finaliza el programa.
+
+### Cambios en la Estructura del Repositorio
+
+- **Archivos eliminados:**
+  - `organizer.py` ya no está disponible.
+- **Nuevos Archivos:**
+  - `organizer-gui.py`: Versión gráfica.
+  - `organizer-console.py`: Versión de consola.
+  - `organizer-console-dev.py`: Archivo de desarrollo para pruebas.
 
 ### Categorías Soportadas
 
-- **Configuraciones y Backups:** `.ini`, `.conf`, `.cfg`, `.bak`, `.log`, etc.
-- **Documentos:** `.pdf`, `.docx`, `.xlsx`, `.pptx`, etc.
-  - Subcategorías: `PDFs`, `Word`, `Hojas de Cálculo`, `Macros`, `Presentaciones`, `Textos`.
+- **Configuraciones y Backups:** `.ini`, `.conf`, `.cfg`, `.bak`, etc.
+- **Documentos:** `.pdf`, `.docx`, `.xlsx`, `.xlsm`, etc. (subcategorías: `PDFs`, `Word`, `Hojas de Cálculo`, etc.).
 - **Imágenes:** `.jpg`, `.png`, `.tiff`, etc.
 - **Vídeos:** `.mp4`, `.avi`, `.mkv`, etc.
 - **Audios:** `.mp3`, `.wav`, `.flac`, etc.
@@ -57,13 +81,12 @@ No es necesario instalar dependencias adicionales, ya que estas están incluidas
 
 ### Reversión
 
-El proceso de organización genera un archivo `revert.json` en la carpeta destino, que contiene un registro de las ubicaciones originales y nuevas de los archivos. Esto permite revertir el proceso en cualquier momento.
+El proceso de organización genera un archivo `revert.json` en la carpeta `Organizados`. Este archivo contiene un registro de las ubicaciones originales y nuevas de los archivos, lo que permite revertir el proceso.
 
 ## Contribuciones
 
-Las contribuciones son bienvenidas. Si tienes ideas para mejorar el proyecto, crea un issue o envía un pull request.
+Contribuciones son bienvenidas. Si tienes ideas para mejorar el proyecto, por favor abre un `issue` o envía un `pull request`.
 
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
-
